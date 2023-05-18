@@ -11,6 +11,7 @@ pool: 'sritest'
 steps:
 - task: JFrogGradle@1
   inputs:
+    workingDirectory: '/root/myagent/_work/1/s/'
     gradleBuildFile: 'build.gradle'
     tasks: 'artifactoryPublish'
     artifactoryResolverService: 'test'
