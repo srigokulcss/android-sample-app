@@ -6,18 +6,15 @@
 trigger:
 - master
 
-pool: 'sritest'
-
+pool:
+  vmImage: ubuntu-latest
 steps:
 - task: JFrogGradle@1
   inputs:
-    workingDirectory: '/root/myagent/_work/1/s/'
     gradleBuildFile: 'build.gradle'
     tasks: 'artifactoryPublish'
-    artifactoryResolverService: 'test'
+    artifactoryResolverService: 'arti'
     sourceRepo: 'sri-dines-gradle-dev'
-    artifactoryDeployerService: 'test'
+    artifactoryDeployerService: 'arti'
     targetRepo: 'sri-dines-gradle-dev'
-    collectBuildInfo: true
-    buildName: '$(Build.DefinitionName)'
-    buildNumber: '$(Build.BuildNumber)'
+
